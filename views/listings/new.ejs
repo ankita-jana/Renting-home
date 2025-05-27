@@ -1,0 +1,39 @@
+<% layout('layout') -%>
+
+<div class="container mt-5">
+  <h1 class="mb-4 text-center">Create a New Listing</h1>
+
+  <form action="/listings" method="POST" class="shadow p-5 rounded bg-light">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="listing[title]" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <input type="text" class="form-control" id="location" name="listing[location]" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Image URL</label>
+      <input type="url" class="form-control" id="image" name="listing[image]" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" rows="3" name="listing[description]" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price (per night)</label>
+      <input type="number" class="form-control" id="price" name="listing[price]" min="0" required>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <a href="/listings" class="btn btn-secondary">Cancel</a>
+      <button type="submit" class="btn btn-danger px-4">
+        <i class="fa-solid fa-plus me-2"></i>Create Listing
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<% layout('layout') %>
+
+<h1 class="headerr">Welcome to Wanderland</h1>
+
+<h3>All Listings</h3>
+
+<a href="/listings/new">
+    <button>Create New Listing</button>
+</a>
+
+<ul>
+    <% all_listing.forEach(listing => { %>
+        <li>
+            <a href="/listings/<%= listing._id %>">
+                <%= listing.title %>
+            </a>
+        </li>
+    <% }) %>
+</ul>
