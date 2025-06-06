@@ -1,75 +1,28 @@
 <% layout('layout') %>
-<h1>Listing Details:</h1>
-
-    <h3><%= listing.title %></h3>
-<ul>
-    <li>bio-<%= listing.description %></li>
-    <li>&#8377; per night-<%= listing.price.toLocaleString("en-IN") %></li>
-    <li>Location- <%= listing.location %></li>
-</ul>
-
-<!-- Edit button to trigger the modal -->
-<button id="editBtn" style="margin-right: 10px; background-color: #2196F3; color: white; padding: 8px 12px; border: none; cursor: pointer;">
-    Edit this Listing
-</button>
-
-<!-- Delete button -->
-<form method="POST" action="/listings/<%= listing._id %>?_method=DELETE" style="display:inline;">
-    <button type="submit" onclick="return confirm('Are you sure you want to delete this listing?')" 
-        style="background-color: #f44336; color: white; padding: 8px 12px; border: none; cursor: pointer;">
-        Delete this Listing
-    </button>
-</form>
-
-<!-- Modal -->
-<div id="editModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-content">
-        <span id="closeBtn" class="close" title="Close Modal">&times;</span>
-        <h2 id="modalTitle">Edit Listing</h2>
-        <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
-            <input name="listing[title]" value="<%= listing.title %>" type="text" placeholder="Enter title" required>
-            <br><br>
-            <textarea name="listing[description]" placeholder="Enter description" required><%= listing.description %></textarea>
-            <br><br>
-            <input name="listing[image]" value="<%= listing.image %>" type="text" placeholder="Enter image URL" required>
-            <br><br>
-            <input name="listing[price]" value="<%= listing.price %>" type="number" placeholder="Enter price" required>
-            <br><br>
-            <input name="listing[country]" value="<%= listing.country %>" type="text" placeholder="Enter country" required>
-            <br><br>
-            <input name="listing[location]" value="<%= listing.location %>" type="text" placeholder="Enter location" required>
-            <br><br>
-            <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px; border: none;">
-                Update Listing
-            </button>
-        </form>
+<div class="row mt-3">
+  <div class="col-8 offset-3">
+    <h3> Listing Details :</h3>
+  </div>
+  <div class="card col-6 offset-3 show-card">
+      <img src="<%= listing.image.url%>" class="card-img-top show-img" alt="listing_image"/>
+  <div class="card-body">
+    <p class="card-text"> <b> <%= listing.title %></b> <br>
+      <%= listing.description %> <br>
+      &#8377; <%= listing.price.toLocaleString("en-IN") %> <br>
+      <%= listing.location %><br>
+      <%= listing.country %>
+    
+    </p>
+  </div>
     </div>
+    <br/>
+    <div class="btns">
+      <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
+      <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+        <button class="btn btn-dark offset-5">Delete</button>
+      </form>
+    </div>
+  
+    
+  </div>
 </div>
-
-
-<!-- Modal JavaScript -->
-<script>
-    const modal = document.getElementById("editModal");
-    const btn = document.getElementById("editBtn");
-    const closeBtn = document.getElementById("closeBtn");
-
-    btn.onclick = function () {
-        modal.style.display = "block";
-    };
-
-    closeBtn.onclick = function () {
-        modal.style.display = "none";
-    };
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    };
-
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-            modal.style.display = "none";
-        }
-    });
-</script>

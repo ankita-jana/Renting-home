@@ -1,39 +1,111 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #d4ddc9;
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container {
+  flex: 1;
+}
+.add-btn {
+  background-color: rgb(142, 17, 17) !important;
+  border: none !important;
+}
+.edit-btn{
+    background-color: rgb(142, 17, 17) !important;
+  border: none !important;
+}
+.show-img{
+    height: 30vh;
+}
+.btns{
+    display:flex;
+}
+.show-card{
+    padding-left:0;
+    padding-right: 0;
 }
 
 a {
-    text-decoration: none;
-    color: #081b2e;
+  text-decoration: none;
+  color: #081b2e;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 h1 {
-    font-weight: bold;
-    color: rgb(23, 16, 6);
+  font-weight: bold;
+  color: rgb(23, 16, 6);
 }
 h3 {
-    font-weight: bold;
-    color: rgb(135, 95, 44);
+  font-weight: bold;
+  color: rgb(135, 95, 44);
 }
 
-.headerr{
-    color: rgb(17, 3, 3);
+.headerr {
+  color: rgb(17, 3, 3);
 }
 .navbar {
-    height: 5rem;
+  height: 5rem;
+  background-color: whitesmoke;
 }
 .fa-compass {
-    color: rgb(205, 74, 74);
-    font-size: 2rem;
+  color: rgb(205, 74, 74);
+  font-size: 2rem;
+}
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-    .modal {
+.f-info-socials i {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+.f-info {
+  text-align: center;
+  background-color: rgb(177, 174, 174);
+  height: 8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+}
+.card {
+  border: none !important;
+  margin-bottom: 2rem;
+}
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+.card-body {
+  padding: 0 !important;
+}
+.card-text p {
+  font-weight: 400 !important;
+}
+.listing-link {
+  text-decoration: none;
+}
+.card-img-overlay {
+  opacity: 0;
+}
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
+}
+/* .modal {
         display: none;
         position: fixed;
         z-index: 10;
@@ -80,4 +152,4 @@ h3 {
 
     button {
         font-size: 16px;
-    }
+    } */

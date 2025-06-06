@@ -33,13 +33,14 @@ app.get("/", (req, res) => {
 
 // index route
 app.get("/listings", async (req, res) => {
-  const all_listing = await Listing.find({});
-  res.render("./listings/index", { all_listing });
+  const allListings = await Listing.find({});
+res.render("listings/index", { allListings });
 });
+
 
 // new listing form
 app.get("/listings/new", (req, res) => {
-  res.render("listings/new.ejs");
+  res.render("./listings/new.ejs");
 });
 
 // show route for a single listing
